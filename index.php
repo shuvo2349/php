@@ -1,30 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Input Form</title>
+</head>
+<body>
+<form action="index.php" method="GET">
+<input type="text" name="idText"><br/>
+<input type="text" name="nameText"><br/>
+<input type="text" name="salaryText"><br/>
+<input type="submit" name="submitButton" value="Submit">
+</form>
 <?php
-//echo "Hello FTFL!";
+require_once 'officeemployee.php';
+if(isset($_GET['submitButton'])){
 
-//syntax, Exercise
+$an_employee = new OfficeEmployee();
 
-//variables
+$an_employee->id = $_GET['idText']; //$_POST or $_GET has the value in dictionary(Key-value pair) format
+$an_employee->name = $_GET['nameText'];
+$an_employee->salary = $_GET['salaryText'];
 
-//$aNumber = "1234";
-//echo gettype($aNumber);
-//echo settype($aNumber, 'String');
-//echo gettype ($aNumber);
-//$_aString =abcd;
-//$_aString =abcd;
+echo $an_employee->id.' '.$an_employee->name.' '.$an_employee->salary;
+$salary_with_bonus = $an_employee->get_salary_with_bonus();
+echo "<br/>";
+echo "Salary with bonus: ".$salary_with_bonus;	
+}
 
-/*$aBool = true;
-$anotherBool = false;
-echo gettype ($aBool);
-echo $aBool; */
-
-$name = 'SHUVO';
-for($i=1;$i<=5;$i++)
-	{
-	echo $name;
-	echo "<br/>";
-	}
 ?>
-
-
-
-
+</body>
+</html>

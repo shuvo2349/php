@@ -30,9 +30,11 @@
 		$an_employee->id = $_POST['idText'];
 		$an_employee->name = $_POST['nameText'];
 		$an_employee->salary  = $_POST['salaryText'];
+		
+		$salary_with_bonus = $an_employee->get_salary_with_bonus();
 	}
 
-	echo $an_employee->id.''. $an_employee->name. ''. $an_employee->salary;
+	echo $an_employee->id.''. $an_employee->name. ''. $an_employee->salary.'' . $salary_with_bonus;
 	?>
 	
 </html>
